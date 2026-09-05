@@ -7,6 +7,8 @@ data:
   CART_ENDPOINT: "cart:8080"
   #DB_HOST: roboshop-dev.czn6yzxlcsiv.us-east-1.rds.amazonaws.com
   DB_HOST: mysql.roboshop.svc.cluster.local
+  DB_USER: roboshop
+  
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -38,6 +40,8 @@ spec:
         envFrom:
         - configMapRef:
             name: shipping
+        - secretRef:
+            name: shipping   
 ---
 apiVersion: v1
 kind: Service
