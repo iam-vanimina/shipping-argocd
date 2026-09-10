@@ -41,7 +41,14 @@ spec:
         - configMapRef:
             name: shipping
         - secretRef:
-            name: shipping   
+            name: shipping
+        resources:
+          requests:
+             cpu: 100m
+             memory: 128Mi
+          limits:
+           cpu: 500m
+           memory: 512Mi           
 ---
 apiVersion: v1
 kind: Service
